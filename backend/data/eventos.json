@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "nome": "Pool Party",
+    "data": "2024-06-20"
+  },
+  {
+    "id": 2,
+    "nome": "Wedding Party",
+    "data": "2024-06-30"
+  },
+  {
+    "id": 3,
+    "nome": "Birthday Party",
+    "data": "2024-07-22"
+  }
+]
