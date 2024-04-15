@@ -15,13 +15,13 @@ export class IndexController {
   }
 
   @Post()
-  post(@Body() body:any, @Res() res:Response, @Session() session:Record<string, any>) {
+  post(@Body() { item }:any, @Res() res:Response, @Session() session:Record<string, any>) {
     
     const user = session.user
     const message = "Sua primeira aplicacao backend com nest"
     
     if(!session.itens) session.itens = [];
-    session.itens.push(body.item);
+    session.itens.push(item);
     
     return res.render("welcome", { user, message, itens: session.itens } ); 
   }
