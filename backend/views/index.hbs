@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Index</title>
+        <link rel="stylesheet" href="index/index.css" />
+    </head>
+    <body>
+
+        {{>header}}
+        
+        <h1> Bem-vindo à nossa loja virtual </h1>
+        
+        
+        <div class="product-container">
+            <div class="product-block">
+                <h3>QR</h3>
+                <h4>50 tickets</h4>
+                <p>
+                    Serviço que protege sua festa contra festas que entregam QR Codes individuais para identificação de entrada. Certamente um item obrigatório!
+                </p>
+                <button onclick="add('QR')">+ Adicionar</button>
+            </div>
+            <div class="product-block">
+                <h3>RSVP</h3>
+                <h4>50 tickets</h4>
+                <p>
+                    Serviço de contato com seus convidados através de ligações telefônicas ou do seu aplicativo de mensagens favorito, incluindo mensagens de mídia como foto ou vídeo.
+                </p>
+                <button onclick="add('RSVP')">+ Adicionar</button>
+            </div>
+            <div class="product-block">
+                <h3>STD</h3>
+                <h4>50 tickets</h4>
+                <p>
+                    Serviço de envio de mensagens Save the Dates através do seu aplicativo de mensagens favorito, incluindo mensagens de mídia como foto ou vídeo.
+                </p>
+                <button onclick="add('STD')">+ Adicionar</button>
+            </div>
+        </div>
+
+    </body>
+</html>
+<script src="/index/index.js"></script>

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="/login/login.css" />
+    </head>
+    <body>
+
+        <form id="form" action="/login" method="post">
+            <fieldset>
+                <legend>Login</legend>
+                <span class="error">{{!--error--}}</span><br>
+                
+                <label for="email">E-mail:</label><br>
+                <input type="text" id="email" name="email" value=""><br><br>
+                
+                <label for="senha">Senha:</label><br>
+                <input type="password" id="senha" name="senha" value=""><br><br>
+
+                <input type="submit" id="btnlogin" value="Log In" class="btn-primary">
+            </fieldset>
+        </form>
+
+    </body>
+</html>
+<script src="/login/login.js"></script>

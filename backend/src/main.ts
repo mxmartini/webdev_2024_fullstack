@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 import * as session from 'express-session';
 import { join } from 'path';
 import * as hbs from 'express-handlebars';
+import * as handlebars from 'hbs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -38,6 +39,8 @@ async function bootstrap() {
     } 
   }));
   app.setViewEngine('hbs');
+  handlebars.registerPartials(join(__dirname, '..', 'views/partials'))
+  //handlebars.registerHelper("eq", ()=> {})
 
   await app.listen(3000);
 }
