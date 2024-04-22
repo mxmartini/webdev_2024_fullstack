@@ -1,12 +1,12 @@
-import { Controller, Get, Post, Req, Res, Session, Body } from '@nestjs/common';
-import { Response } from 'express'
+import { Controller, Get, Session, Render } from '@nestjs/common';
 
 @Controller()
 export class IndexController {
   
   @Get()
-  index(@Res() res:Response, @Session() session:Record<string, any>) {
-
-    return res.render("index", { user: null, groupedCart: null } ); 
+  @Render("index")
+  index(@Session() { user, groupedCart }) {
+    
+    return { user, groupedCart }; 
   }
 }

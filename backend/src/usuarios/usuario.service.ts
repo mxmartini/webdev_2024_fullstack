@@ -1,29 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'node:fs';
+import { b64encode } from 'src/utils/functions';
 
 @Injectable()
 export class UsuarioService {
 
   private usuarios = JSON.parse(fs.readFileSync('./data/usuarios.json', 'utf-8')); 
 
-  getUsuarios(): any {
+  obterTodos(): any {
     return this.usuarios;
   }
 
-  getUsuarioPorId(id: number): any {
+  obterPorId(id: number): any {
 
-    const usuario =  this.usuarios.find(e => e.id == id);
-    if(!usuario) return { message: "Nenhum usuário encontrado" };
-
-    return usuario;
+    return this.usuarios.find(e => e.id == id);
   }
 
-  getUsuarioPorEmailESenha(email: string, senha:string): any {
+  obterPorEmailESenha(email: string, senha:string): any {
 
-    const usuario =  this.usuarios.find(e => e.email == email && e.senha == senha);
-    if(!usuario) return { message: "Nenhum usuário encontrado" };
-
-    return usuario;
+    return this.usuarios.find(e => e.email == email && e.senha == b64encode(senha));
   }
 
 }
