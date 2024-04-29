@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body, Query, Res, Render } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, Query, Res, Render, Session } from '@nestjs/common';
 import { UsuarioService } from '../usuarios/usuario.service';
 import { Response } from 'express';
 import { b64decode, b64encode } from 'src/utils/functions';
@@ -15,12 +15,14 @@ export class LoginController {
   }
 
   @Post()
-  login(@Body() { email, senha }:any, @Res() res:Response) {
+  login(@Body() { email, senha }:any, @Res() res:Response, @Session() session:Record<string,any>) {
     
-    if (this.usuarioService.obterPorEmailESenha(email, senha))
+    const usuario = this.usuarioService.obterPorEmailESenha(email, senha);
+    if (usuario) {
+      session.usuario = usuario;
       return res.redirect("home")
+    }
 
-    //return res.redirect("login?err="+ b64encode("Usuário e/ou senha inválidos" ))
     res.render("login", { error : "Usuário e/ou senha inválidos" })
   }
 

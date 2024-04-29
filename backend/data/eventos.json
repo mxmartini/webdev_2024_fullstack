@@ -1,17 +1,20 @@
 [
   {
     "id": 1,
-    "nome": "Pool Party",
-    "data": "2024-06-20"
+    "nome": "Festa da piscina",
+    "data": "2024-06-20",
+    "ativo": true
   },
   {
     "id": 2,
-    "nome": "Wedding Party",
-    "data": "2024-06-30"
+    "nome": "Festa de casamento",
+    "data": "2024-06-30",
+    "ativo": true
   },
   {
     "id": 3,
-    "nome": "Birthday Party",
-    "data": "2024-07-22"
+    "nome": "Festa de aniversário",
+    "data": "2024-07-22",
+    "ativo": false
   }
 ]

@@ -6,13 +6,13 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Olá, {{user.name}}</h1>
+    <h1>Olá, {{usuario.nome}}</h1>
     <h2>{{message}}</h2>
 
     <img src="nest.png" alt="nest-js" width="140" height="105">
 
     <div>
-    {{#if (not empty user.email) }}
+    {{#if (not empty usuario.email) }}
         Sem email
         Bem vindo {{#bold}}administrador{{/bold}}
     {{else}}

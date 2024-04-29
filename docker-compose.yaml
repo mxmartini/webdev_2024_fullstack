@@ -1,0 +1,21 @@
+version: '3.0'
+
+services:
+  db:  
+    container_name: nest-app-db
+    platform: linux/x86_64
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      - TZ=America_Sao_Paulo
+      - MYSQL_ROOT_PASSWORD=Root!2024
+      - MYSQL_DATABASE=main
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+volumes: 
+  data:

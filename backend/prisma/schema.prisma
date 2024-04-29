@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Convidado {
+  id           Int       @id @default(autoincrement())
+  nome         String    @db.VarChar(255)
+  idade        Int?      @db.TinyInt
+  endereco     String?   @db.Text
+  ativo        Boolean?  @default(false)
+  eventoId     Int
+  criadoEm     DateTime  @default(now()) @db.DateTime(0)
+  atualizadoEm DateTime? @db.DateTime(0)
+  evento       Evento    @relation(fields: [eventoId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "convidado_ibfk_1")
+
+  @@index([eventoId], map: "eventoId")
+  @@map("convidado")
+}
+
+model Evento {
+  id           Int         @id @default(autoincrement())
+  nome         String      @db.VarChar(255)
+  data         DateTime?   @db.Date
+  ativo        Boolean?    @default(false)
+  criadoEm     DateTime    @default(now()) @db.DateTime(0)
+  atualizadoEm DateTime?   @db.DateTime(0)
+  convidado    Convidado[]
+  @@map("evento")
+}

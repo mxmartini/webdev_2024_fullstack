@@ -6,7 +6,7 @@
     <div class="header">
 
         <div class="options">
-            {{#if (empty user) }}
+            {{#if (empty usuario) }}
             <button onclick="window.open('/login', '_self')">Login</button>
             {{else}}
             <div class="dropdown">
@@ -23,11 +23,11 @@
             <div class="dropdown">
             
                 <button class="dropbtn">
-                    <i class="fa fa-user-circle"></i> {{user.name}}
+                    <i class="fa fa-user-circle"></i> {{usuario.nome}}
                 </button>
                     <div class="dropdown-content" style="right: 0;">
-                        <a href="#">{{user.email}}</a>
-                        <a href="#"><small>{{dataPtBr user.ultLogin}}</small></a>
+                        <a href="#">{{usuario.email}}</a>
+                        <a href="#"><small>{{dataPtBr usuario.ultLogin}}</small></a>
                         <a href="#" onclick="window.open('/logout', '_self')">Logout</a>
                 </div>
             </div>
@@ -38,10 +38,10 @@
                     <i class="fa fa-shopping-cart"></i>
                 </button>
                     <div class="dropdown-content" style="right: 0;">
-                    {{#each (props groupedCart)}}
+                    {{#each (props carrinhoAgrupado)}}
                         <a href="#">
                             <b>{{this}}</b><br/>
-                            x {{key ../groupedCart this}}
+                            x {{key ../carrinhoAgrupado this}}
                         </a>
                     {{/each}}
                     <a href="#" onclick="window.open('/pedido', '_self')">Fazer pedido</a>

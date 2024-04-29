@@ -1,21 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'node:fs';
+import { Evento, Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class EventoService {
 
-  private eventos = JSON.parse(fs.readFileSync('./data/eventos.json', 'utf-8')); 
+  constructor(private prisma: PrismaService) {}
 
-  getEventos(): any {
-    return this.eventos;
+  async getEventos(): Promise<Evento[]> {
+
+    return this.prisma.evento.findMany();
   }
 
-  getEventoPorId(id: number): any {
+  async getEventoPorId(id: Prisma.EventoWhereUniqueInput): Promise<Evento | null> {
 
-    const evento =  this.eventos.find(e => e.id == id);
-    if(!evento) return { message: "Nenhum evento encontrado" };
-
-    return evento;
+    return this.prisma.evento.findUniqueOrThrow({ where : id });
   }
 
 }

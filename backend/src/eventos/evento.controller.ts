@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Param } from '@nestjs/common';
 import { EventoService } from './evento.service';
 
+
 @Controller("eventos")
 export class EventoController {
   constructor(private readonly eventoService: EventoService) {}
@@ -11,8 +12,8 @@ export class EventoController {
   }
 
   @Get(":id")
-  getEventoPorId(@Param("id") id: number) {
-    return this.eventoService.getEventoPorId(id);
+  async getEventoPorId(@Param("id") id: string) {
+    return this.eventoService.getEventoPorId({ id : Number(id) });
   }
 
 }

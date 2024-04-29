@@ -5,8 +5,8 @@ export class IndexController {
   
   @Get()
   @Render("index")
-  index(@Session() { user, groupedCart }) {
+  index(@Session() { usuario, carrinhoAgrupado }) {
     
-    return { user, groupedCart }; 
+    return { usuario, carrinhoAgrupado }; 
   }
 }

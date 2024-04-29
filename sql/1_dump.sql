@@ -1,4 +1,4 @@
-USE webdev;
+USE main;
 
 CREATE TABLE evento (
     id int not null primary key auto_increment,
@@ -18,7 +18,7 @@ CREATE TABLE convidado (
     eventoId int not null,
     criadoEm datetime not null default NOW(),
     atualizadoEm datetime,
-    FOREIGN KEY (eventoId) REFERENCES event (id)
+    FOREIGN KEY (eventoId) REFERENCES evento (id)
 );
 
 INSERT INTO evento (nome, data) values ('Festa da Piscina', '2024-09-24'), ('Casamento', '2024-10-24'), ('Aniversário', '2024-11-24');
