@@ -20,22 +20,22 @@
                         <div class="row">
                             <div>
                                 <label for="src_nome">Nome:</label><br>
-                                <input type="text" id="src_nome" name="src_nome" value="">
+                                <input type="text" id="src_nome" name="src_nome" value="{{src_nome}}">
                             </div>
                             <div>
                                 <label for="src_data_ini">Data inicial:</label><br>
-                                <input type="date" id="src_data_ini" name="src_data_ini" value="">
+                                <input type="date" id="src_data_ini" name="src_data_ini" value="{{src_data_ini}}">
                             </div>
                             <div>
                                 <label for="src_data_fin">Data final:</label><br>
-                                <input type="date" id="src_data_fin" name="src_data_fin" value="">
+                                <input type="date" id="src_data_fin" name="src_data_fin" value="{{src_data_fin}}">
                             </div>
                             <div>
                                 <label for="src_ativo">Ativo?</label><br>
                                 <select id="src_ativo" name="src_ativo">
-                                    <option value="">...</option>
-                                    <option value="1">Sim</option>
-                                    <option value="0">Não</option>
+                                    <option value="" {{iif (eq src_ativo "") "selected"}}>...</option>
+                                    <option value="1" {{iif (eq src_ativo "1") "selected"}}>Sim</option>
+                                    <option value="0" {{iif (eq src_ativo "0") "selected"}}>Não</option>
                                 </select>
                             </div>
                         </div>
@@ -65,7 +65,19 @@
                         <td style="color: {{#if this.ativo}}green; {{else}}red; {{/if}}">
                         {{#if this.ativo}} &#10004; {{else}} &#10008; {{/if}}
                         </td>
-                        <td>[...acoes]</td>
+                        <td>
+                            <div class="dropdown">
+            
+                                <button class="dropbtn">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <div class="dropdown-content" style="right: 0;">
+                                    <a href="#" onclick="editClick({{this.id}})">Editar</a>
+                                    <a href="#" onclick="removeClick({{this.id}})">Remover</a>
+                                    <a href="/home/{{this.id}}">Ver detalhes</a>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 {{/each}}
                 </tbody>
@@ -85,7 +97,8 @@
                     <fieldset>
                     <legend>Cadastrar evento</legend>
                         <span class="error"></span><br>
-                        
+                        <input type="hidden" id="id" name="id" value="">
+
                         <label for="nome">Nome:</label><br>
                         <input type="text" id="nome" name="nome" value=""><br><br>
                         
@@ -106,4 +119,4 @@
     
     </body>
 </html>
-<script src="/home/home.js" type="module"></script>
+<script src="/home/home.js"></script>

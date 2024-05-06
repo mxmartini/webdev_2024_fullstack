@@ -36,12 +36,14 @@ async function bootstrap() {
   hbs.registerHelper("le", (a, b) => a <= b)
   hbs.registerHelper("not", (a) => !a)
   hbs.registerHelper("empty", (a) => a === "" || a === null || a === undefined)
+  hbs.registerHelper("iif", (a, b, c) => a ? b : c)
   hbs.registerHelper("bold", (a) => "<b>" + a.fn(this) + "</b>")
   hbs.registerHelper("b64encode", (a) => b64encode(a))
   hbs.registerHelper("b64decode", (a) => b64decode(a))
+  hbs.registerHelper("stringfy", (a) => JSON.stringify(a))
   hbs.registerHelper("props", (a) => typeof a === 'object' ? Object.keys(a) : [])
   hbs.registerHelper("key", (a, b) => typeof a === 'object' ? a[b] : undefined) 
-  hbs.registerHelper("dataPtBr", (a) => new Date(a).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: undefined, timeZone: "America/Sao_Paulo" }))
+  hbs.registerHelper("dataPtBr", (a) => { if (a) return new Date(a.toISOString().slice(0, 10)+" EDT").toLocaleString("pt-BR", { dateStyle: "short", timeStyle: undefined, timeZone: "America/Sao_Paulo" }); })
 
   await app.listen(3000);
 }

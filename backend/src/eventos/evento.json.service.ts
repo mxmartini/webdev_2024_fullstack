@@ -6,11 +6,11 @@ export class EventoService {
 
   private eventos = JSON.parse(fs.readFileSync('./data/eventos.json', 'utf-8')); 
 
-  getEventos(): any {
+  obterEventos(): any {
     return this.eventos;
   }
 
-  getEventoPorId(id: number): any {
+  obterEventoPorId(id: number): any {
 
     const evento =  this.eventos.find(e => e.id == id);
     if(!evento) return { message: "Nenhum evento encontrado" };

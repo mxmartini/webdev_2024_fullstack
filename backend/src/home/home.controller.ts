@@ -1,22 +1,23 @@
-import { Controller, Get, Post, Param, Res, Render, Session } from '@nestjs/common';
-import { EventoService } from 'src/eventos/evento.service';
-import { Response } from 'express';
-
+import { Controller, Get, Post, Res, Render, Session, Body } from '@nestjs/common';
+import { EventoService, EventoFiltroDto } from 'src/eventos/evento.service';
 
 @Controller("home")
 export class HomeController { 
   constructor(private readonly eventoService: EventoService) {}
 
   @Get()
-  index(@Res() res:Response, @Session() { usuario, carrinhoAgrupado }) {
-    if(!usuario) return res.redirect("/login") 
-    return res.render("home", { usuario, carrinhoAgrupado });
+  @Render("home")
+  index(@Session() session:any) { 
+    
+    return { ...session };
   }
-
 
   @Post()
-  async pesquisar(@Res() res: Response){
-    const eventos = await this.eventoService.getEventos();
-    res.render("home", { eventos })
+  @Render("home")
+  async pesquisar(@Body() filtro:EventoFiltroDto, @Session() session:any) {
+    session.filtro = filtro;
+    const eventos = await this.eventoService.obterPorFiltro(filtro);
+    return { ...session, ...filtro, eventos }
   }
-}
+  
+} 

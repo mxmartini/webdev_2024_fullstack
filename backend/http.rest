@@ -1,0 +1,19 @@
+POST http://localhost:3000/eventos
+Content-Type: application/json
+
+{
+    "nome": "EVENTO TESTE 3",
+    "data": "2024-06-24",
+    "ativo": "1"
+}
+###
+
+PUT http://localhost:3000/eventos
+Content-Type: application/json
+
+{
+    "id": 5,
+    "nome": "EVENTO TESTE 4",
+    "data": "2024-06-24",
+    "ativo": "1"
+}
