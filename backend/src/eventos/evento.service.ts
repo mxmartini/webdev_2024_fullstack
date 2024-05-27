@@ -75,7 +75,7 @@ export class EventoService {
     
     return this.prisma.evento.update({ where: { id: Number(dto.id) }, data: { 
       nome: dto.nome, 
-      data: new Date(dto.data),
+
       ativo: "ativo" in dto || dto.ativo == "1"
     }});
   }
