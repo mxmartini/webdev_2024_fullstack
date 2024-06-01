@@ -1,29 +1,27 @@
-import { useRef } from 'react'
-import TabelaEvento from './TabelaEvento'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home"
+import Index from "./pages/Index"
 
 function App() {
   
-  const tb = useRef<TabelaEvento>()
-
-  function pesquisarClick(){
-
-    // EXECUTA NO PRIMEIRO LOAD DA PAGINA
-    fetch("http://localhost:3000/eventos")
-    .then(res => res.json())
-    .then(data => tb.current?.carregar(data))
-    .catch(err => console.warn(err))
-  }
-
   return (
-    <>
-      <h1>Eventos</h1>
-
-      <div style={{ margin: "20px 0" }}>
-        <button onClick={pesquisarClick}>Pesquisar</button>
-      </div>
-
-      <TabelaEvento ref={tb} border="1" cellPadding="10" cellSpacing="1"></TabelaEvento>
-    </>
+    <Router>
+    <div className="content">
+  
+      <nav className="menu">
+        <ul>
+          <li><Link to="/">Index</Link></li>
+          <li><Link to="/home">Home</Link></li>
+        </ul>
+      </nav>
+  
+      <Routes>
+        <Route path="/" element={<Index/>}/>
+        <Route path="/home" element={<Home/>}/>
+      </Routes>
+  
+    </div>
+  </Router>
   )
 
 }

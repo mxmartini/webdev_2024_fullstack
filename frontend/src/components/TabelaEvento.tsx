@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useState } from 'react'
 
-const TabelaEvento = forwardRef((props: any, ref) => {
+const TabelaEvento = forwardRef(({ border, cellPadding, cellSpacing }: TabelaEventoProps, ref) => {
   
     const [eventos, setEventos] = useState(new Array<Evento>)
 
@@ -16,7 +16,7 @@ const TabelaEvento = forwardRef((props: any, ref) => {
 
     return (
        
-        <table border={props.border} cellPadding={props.cellPadding} cellSpacing={props.cellSpacing}>
+        <table border={border} cellPadding={cellPadding} cellSpacing={cellSpacing}>
             <thead>
                 <tr>
                     <th>Nome</th>
