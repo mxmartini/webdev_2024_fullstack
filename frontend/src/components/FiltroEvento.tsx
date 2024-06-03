@@ -15,7 +15,7 @@ function FiltroEvento({ onFinalizado }:FiltroEventoProps){
 
     return (
         <>
-            <fieldset>
+            <fieldset style={{ margin: "20px 0" }}>
                 <legend>Pesquisa de eventos</legend>
                 
                 <div style={{ padding: "20px 0" }}>

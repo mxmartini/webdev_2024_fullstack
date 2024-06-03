@@ -1,6 +1,6 @@
 import { useRef } from "react"
-import TabelaEvento from "../components/TabelaEvento"
 import FiltroEvento from "../components/FiltroEvento"
+import TabelaEvento from "../components/TabelaEvento"
 
 function Home() {
   
