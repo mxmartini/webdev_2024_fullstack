@@ -1,0 +1,4 @@
+
+.btn-primary { background-color: crimson; color: white; padding: 8px 16px; border-radius: 5px; border: 1px crimson solid; cursor: pointer; }
+.btn-primary:hover { background-color: rgb(232, 21, 63); }
+.btn-primary:active { background-color: rgb(148, 14, 41) }

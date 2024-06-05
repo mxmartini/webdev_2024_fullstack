@@ -1,37 +1,41 @@
 import { useContext } from "react"
 import AppContext from "../AppContext"
-import { useNavigate } from "react-router-dom"
+
+import "../assets/index/index.css"
 
 function Index() {
 
-  const { user, setUser } = useContext(AppContext)
-  const navigate = useNavigate()
-
-  function loginClick(){
-
-    const user = { nome: "Max", email: "max@mail.com" }
-    sessionStorage.setItem("user", JSON.stringify(user))
-    setUser(user)
-    //navigate("/home")
-  }
-
-  function logoutClick(){
-
-    sessionStorage.removeItem("user")
-    setUser(null)
-  }
+  const { user } = useContext(AppContext)
   
   return (
     <>
-      <h1>Index</h1>
-      <p>
-        { user?.email }
-      </p>
-      {!user 
-      ? <button onClick={loginClick}>Entrar</button>
-      : <button onClick={logoutClick}>Sair</button>
-      }
-      
+      <h1> Bem-vindo à nossa loja virtual </h1>
+      <div className="product-container">
+          <div className="product-block">
+              <h3>QR</h3>
+              <h4>50 tickets</h4>
+              <p>
+                  Serviço que protege sua festa contra festas que entregam QR Codes individuais para identificação de entrada. Certamente um item obrigatório!
+              </p>
+              <button>+ Adicionar</button>
+          </div>
+          <div className="product-block">
+              <h3>RSVP</h3>
+              <h4>50 tickets</h4>
+              <p>
+                  Serviço de contato com seus convidados através de ligações telefônicas ou do seu aplicativo de mensagens favorito, incluindo mensagens de mídia como foto ou vídeo.
+              </p>
+              <button>+ Adicionar</button>
+          </div>
+          <div className="product-block">
+              <h3>STD</h3>
+              <h4>50 tickets</h4>
+              <p>
+                  Serviço de envio de mensagens Save the Dates através do seu aplicativo de mensagens favorito, incluindo mensagens de mídia como foto ou vídeo.
+              </p>
+              <button>+ Adicionar</button>
+          </div>
+      </div>
     </>
   )
 }

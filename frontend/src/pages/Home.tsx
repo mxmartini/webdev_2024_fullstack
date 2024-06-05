@@ -2,6 +2,8 @@ import { useRef } from "react"
 import FiltroEvento from "../components/FiltroEvento"
 import TabelaEvento from "../components/TabelaEvento"
 
+import "../assets/home/home.css"
+
 function Home() {
   
     const tb = useRef<TabelaEvento>()
