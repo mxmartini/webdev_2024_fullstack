@@ -12,7 +12,7 @@ function Index() {
     const user = { nome: "Max", email: "max@mail.com" }
     sessionStorage.setItem("user", JSON.stringify(user))
     setUser(user)
-    navigate("/home")
+    //navigate("/home")
   }
 
   function logoutClick(){
