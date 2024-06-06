@@ -1,14 +1,13 @@
-import { useContext } from "react"
-import AppContext from "../AppContext"
+import Header from "../components/Header"
 
 import "../assets/index/index.css"
 
 function Index() {
 
-  const { user } = useContext(AppContext)
-  
   return (
     <>
+      <Header />
+      
       <h1> Bem-vindo à nossa loja virtual </h1>
       <div className="product-container">
           <div className="product-block">

@@ -1,7 +1,12 @@
     
 function FiltroEvento({ onFinalizado }:FiltroEventoProps){
 
-    function pesquisarClick(){
+    function inputChange(){
+
+    }
+
+    function pesquisarSubmit(e: React.FormEvent){
+        e.preventDefault();
   
         fetch("http://localhost:3000/eventos")
         .then(res => res.json())
@@ -14,21 +19,38 @@ function FiltroEvento({ onFinalizado }:FiltroEventoProps){
     }
 
     return (
-        <>
-            <fieldset style={{ margin: "20px 0" }}>
-                <legend>Pesquisa de eventos</legend>
-                
-                <div style={{ padding: "20px 0" }}>
-                    <label>Nome:</label>
-                    <input name="nome" />
-                </div>
-
-                <div style={{ padding: "20px 0" }}>
-                    <button onClick={pesquisarClick}>Pesquisar</button>
-                </div>
-
-            </fieldset>
-        </>
+        <form id="search-form" onSubmit={pesquisarSubmit}>
+            <div id="filters">
+                <fieldset>
+                    <legend>Pesquisa de eventos</legend>
+                    <div className="row">
+                        <div>
+                            <label htmlFor="nome">Nome:</label><br/>
+                            <input type="text" id="nome" name="nome" onChange={inputChange}/>
+                        </div>
+                        <div>
+                            <label htmlFor="data_ini">Data inicial:</label><br/>
+                            <input type="date" id="data_ini" name="data_ini" onChange={inputChange}/>
+                        </div>
+                        <div>
+                            <label htmlFor="data_fin">Data final:</label><br/>
+                            <input type="date" id="data_fin" name="data_fin" onChange={inputChange}/>
+                        </div>
+                        <div>
+                            <label htmlFor="ativo">Ativo?</label><br/>
+                            <select id="ativo" name="ativo">
+                                <option value="">...</option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <button id="btnsearch" className="btn-primary"><i className="fa fa-search"></i> Pesquisar</button>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
     )
 }
 

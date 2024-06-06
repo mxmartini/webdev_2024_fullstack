@@ -1,6 +1,6 @@
 @import url('../theme.css');
 
-fieldset {
+#login-form fieldset {
     width: 30%;
     margin: 0;
     position: absolute;
@@ -11,6 +11,6 @@ fieldset {
     padding: 20px;
     border-radius: 5px;
 }
-fieldset label { margin: 10px; margin-bottom: 0; }
-fieldset input { margin: 10px; }
-fieldset .error { color: red; margin: 0 10px; }
+#login-form fieldset label { margin: 10px; margin-bottom: 0; }
+#login-form fieldset input { margin: 10px; }
+#login-form fieldset .error { color: red; margin: 0 10px; }

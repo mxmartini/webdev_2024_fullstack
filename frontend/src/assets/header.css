@@ -24,9 +24,9 @@ h1 { margin: 21;}
     cursor: pointer;
 }
     
-.header .dropbtn .fa-bars { padding: 10; font-size: 22; }
-.header .dropbtn .fa-user-circle { padding: 10; font-size: 20; }
-.header .dropbtn .fa-shopping-cart { padding: 20; }
+.header .dropbtn .fa-bars { padding: 10px; font-size: 22px; }
+.header .dropbtn .fa-user-circle { padding: 10px; font-size: 20px; }
+.header .dropbtn .fa-shopping-cart { padding: 20px; }
 
 .header .dropdown-content {
     display: none;
