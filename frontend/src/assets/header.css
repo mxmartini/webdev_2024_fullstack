@@ -1,6 +1,6 @@
 html, body { margin:0; padding: 0; }
 
-h1 { margin: 21;}
+h1 { margin: 21px;}
 
 .header { padding: 10px; background-color: crimson; color: #fff; }
 .header .options { display: flex; align-items: center; justify-content: space-between; gap: 10px; }

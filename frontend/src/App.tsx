@@ -1,13 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AppContext from "./AppContext";
+
 import Home from "./pages/Home"
 import Index from "./pages/Index"
-import AppContext from "./AppContext";
+import Login from "./pages/Login";
+
 import { useState } from "react";
 
 import "./assets/dropdown.css"
 import "./assets/header.css"
-import Header from "./components/Header";
-import Login from "./pages/Login";
+
 
 function App() {
   

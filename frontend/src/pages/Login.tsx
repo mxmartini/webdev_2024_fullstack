@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 import "../assets/login/login.css"
 
-type LoginForm = {
+type FormLogin = {
   email:string,
   senha:string
 }
@@ -16,7 +16,7 @@ function Login() {
     const navigate = useNavigate()
 
     const [error, setError] = useState("")
-    const [form, setForm] = useState<LoginForm>({
+    const [form, setForm] = useState<FormLogin>({
       email: "",
       senha: ""
     })
